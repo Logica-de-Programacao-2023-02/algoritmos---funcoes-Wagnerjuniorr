@@ -21,3 +21,62 @@ func main() {
 	fmt.Println("A média aritimética será:", resultado)
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////
+//EXERCÍCIO 02
+package main
+
+import (
+	"bufio"
+	"fmt"
+	"os"
+)
+
+// Crie uma função que receba uma string e retorne a quantidade de vogais presentes.
+func v(frase string) int {
+	var k int
+	for i := 0; i < len(frase); i++ {
+		if frase[i] == 'a' || frase[i] == 'e' || frase[i] == 'i' || frase[i] == 'o' || frase[i] == 'u' {
+
+			k++
+		}
+	}
+	return k
+}
+
+func main() {
+	newScanner := bufio.NewScanner(os.Stdin)
+	fmt.Println("Digite uma frase")
+	newScanner.Scan()
+	frase := newScanner.Text()
+	resultado := v(frase)
+	fmt.Printf("A frase %s tem %d vogais", frase, resultado)
+
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+EXERCÍCIO 03
+package main
+
+import "fmt"
+
+//Crie uma função que receba um slice de strings e retorne a concatenação de todas as strings.
+
+func conc(frase []string, frase2 string) string {
+	for i := 0; i < len(frase); i++ {
+		frase2 += frase[i]
+	}
+	return frase2
+}
+
+func main() {
+	var frase2, resultado, x string
+	var frase []string
+	for i := 0; i < 10; i++ {
+		fmt.Println("Digite uma palavra")
+		fmt.Scan(&x)
+		frase = append(frase, x)
+
+	}
+	resultado = conc(frase, frase2)
+	fmt.Println("A concatenação das suas palvras ficará", resultado)
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////
