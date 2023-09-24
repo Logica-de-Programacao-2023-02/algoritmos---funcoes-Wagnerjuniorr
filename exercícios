@@ -1,0 +1,23 @@
+//EXERCÍCIO 01
+package main
+
+import "fmt"
+
+// Crie uma função que receba um slice de inteiros e retorne a média aritmética dos valores.
+
+func media(num []int, tamanho int) int {
+	var i, r, x int
+
+	for i = 0; i < len(num); i++ {
+		x += num[i]
+	}
+	r = x / tamanho
+	return r
+}
+
+func main() {
+	num := []int{10, 10, 10, 10, 10}
+	resultado := media(num, len(num))
+	fmt.Println("A média aritimética será:", resultado)
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////
