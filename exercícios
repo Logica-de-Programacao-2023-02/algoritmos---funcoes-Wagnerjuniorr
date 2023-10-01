@@ -211,3 +211,37 @@ func main() {
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////
 EXERCÍCIO 08
+//errado
+package main
+
+import "fmt"
+
+//Escreva uma função que receba um slice de inteiros como parâmetro
+//retorne um novo slice com apenas os números pares contidos no slice.
+//Caso o slice esteja vazio, retorne um erro.
+
+func slice2(num []int) ([]int, error) {
+	var num2 []int
+	for i := 0; i < len(num); i++ {
+		if num[i]%2 == 0 {
+			num2 = append(num2, num[i])
+		}
+
+	}
+	if num == nil {
+		return nil, fmt.Errorf("erro")
+	}
+	return num2, nil
+}
+
+func main() {
+	var num = []int{1, 2, 3, 4, 5}
+	resultado, err := slice2(num)
+	if err != nil {
+		fmt.Println("Número invalido")
+	} else {
+		fmt.Println(resultado)
+	}
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////
+EXERCÍCIO 09
