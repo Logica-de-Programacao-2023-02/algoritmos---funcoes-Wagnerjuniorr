@@ -245,3 +245,37 @@ func main() {
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////
 EXERCÍCIO 09
+package main
+
+import (
+	"fmt"
+	"strings"
+)
+
+//Crie uma função que receba uma string como parâmetro e retorne um novo slice com todas as palavras contidas na string.
+//Considere que as palavras são separadas por espaços em branco.
+//Caso a string seja vazia, retorne um erro.
+
+func string2(frase string) ([]string, error) {
+	var frase2 []string
+	
+	frase2 = strings.Split(frase, " ")
+	if len(frase) == 0 {
+		return nil, fmt.Errorf("erro")
+	}
+
+	return frase2, nil
+}
+
+func main() {
+	frase := "Eu quero tirar 10 na prova"
+	resultado, err := string2(frase)
+	if err != nil {
+		fmt.Println("String vazia")
+	} else {
+		fmt.Println(resultado)
+	}
+
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////
+EXERCÍCIO 10
