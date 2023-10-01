@@ -144,3 +144,34 @@ func main() {
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////
 EXERCÍCIO 06
+package main
+
+import (
+	"fmt"
+)
+
+//Escreva uma função que receba um slice de strings como parâmetro
+//retorne uma string com todas as strings concatenadas e separadas por vírgulas.
+//Caso o slice esteja vazio, retorne um erro.
+
+func conca(s []string) (string, error) {
+	var frase string
+	for i := 0; i < len(s); i++ {
+		frase += s[i] + ","
+
+	}
+	if s == nil {
+		fmt.Errorf("erro")
+	}
+	return frase, nil
+}
+
+func main() {
+	var s = []string{"a", "b", "c", "d"}
+	frase, err := conca(s)
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Println(frase)
+	}
+}
