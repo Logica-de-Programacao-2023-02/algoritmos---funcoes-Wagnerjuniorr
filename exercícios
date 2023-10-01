@@ -175,3 +175,39 @@ func main() {
 		fmt.Println(frase)
 	}
 }
+//////////////////////////////////////////////////////////////////////////////////////////////////
+EXERCÍCIO 07
+package main
+
+import "fmt"
+
+//Crie uma função que receba um slice de inteiros e uma função como parâmetros.
+//A função deve aplicar a função recebida em cada elemento do slice e retornar um novo slice com os resultados.
+//Caso o slice esteja vazio, retorne um erro.
+
+type media2 func(x int, y int) int
+
+func abcc(num []int, m media2) (int, error) {
+	var x, y int
+	x = len(num)
+	for i := 0; i < len(num); i++ {
+		y += num[i]
+	}
+
+	if num == nil {
+		return 0, fmt.Errorf("erro")
+	}
+	return m(x, y), nil
+}
+func main() {
+	var num = []int{1, 2, 3, 4, 5}
+	resultado := func(x int, y int) int {
+		return x / y
+
+	}
+	resultado2, _ := abcc(num, resultado)
+	fmt.Println(resultado2)
+
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////
+EXERCÍCIO 08
