@@ -109,3 +109,38 @@ func main() {
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////
 EXERCÍCIO 05
+package main
+
+import "fmt"
+
+//Crie uma função que receba um slice de inteiros e um valor inteiro
+//retorne a posição do primeiro elemento igual ao valor no slice.
+//Caso não encontre, retorne -1.
+
+func sliceint(num []int, x int) (int, error) {
+	var y int
+	if x < 0 && x > len(num) {
+		return 0, fmt.Errorf("-1")
+	}
+	num = append(num[x-1:], num[:x]...)
+	for i := 0; i < 1; i++ {
+		y = num[i]
+	}
+
+	return y, nil
+}
+
+func main() {
+	var num = []int{1, 2, 9, 4, 5, 6, 7}
+	x := 3
+	result, err := sliceint(num, x)
+	if err != nil {
+		fmt.Println(err)
+		return
+	} else {
+		fmt.Println(result)
+	}
+
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////
+EXERCÍCIO 06
