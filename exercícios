@@ -80,3 +80,32 @@ func main() {
 	fmt.Println("A concatenação das suas palvras ficará", resultado)
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////
+EXERCÍCIO 04
+package main
+
+import "fmt"
+
+//Crie uma função que receba um slice de inteiros e retorne o segundo maior valor.
+
+func maiorvalor(num []int) int {
+	var x, y int
+	for i := 0; i < len(num)-1; i++ {
+		if num[i+1] > num[i] {
+			x = num[i+1]
+		}
+	}
+	for i := 0; i < len(num); i++ {
+		if num[i] < x && num[i+1] > num[i] {
+			y = num[i]
+		}
+	}
+	return y
+}
+
+func main() {
+	var x = []int{1, 2, 3, 4, 5, 6, 7, 8}
+	result := maiorvalor(x)
+	fmt.Println(result)
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////
+EXERCÍCIO 05
