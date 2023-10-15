@@ -392,6 +392,39 @@ func main() {
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 EXERCÍCIO 13
+package main
+
+import "fmt"
+
+//Crie uma função que receba um número inteiro como parâmetro
+//e retorne a soma de todos os seus dígitos.
+//Caso o número seja negativo, retorne um erro.
+
+func AllDigits(num int) (int, error) {
+
+	var soma int
+	if num < 0 {
+		return 0, fmt.Errorf("número invalido")
+	}
+	
+	//enquanto num não for 0, a SUM será a soma do resto de num/10
+	for num > 0 {
+		soma += num % 10
+		num /= 10
+
+	}
+	return soma, nil
+}
+
+func main() {
+	num := 123498420
+	resultado, err := AllDigits(num)
+	if err != nil {
+		fmt.Println("número invalido")
+	} else {
+		fmt.Println(resultado)
+	}
+}
 //////////////////////////////////////////////////////////////////////////////////////////////////
 EXERCÍCIO 14
 //////////////////////////////////////////////////////////////////////////////////////////////////
