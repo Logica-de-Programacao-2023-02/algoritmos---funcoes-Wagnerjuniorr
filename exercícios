@@ -356,6 +356,40 @@ func main() {
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////
 EXERCÍCIO 12
+package main
+
+import "fmt"
+
+//Escreva uma função que receba um slice de strings como parâmetro
+//e retorne uma string contendo apenas as strings que começam com uma letra maiúscula.
+//Caso o slice esteja vazio, retorne um erro.
+
+func CamelCase(p []string) (string, error) {
+	var frase, a string
+	if p == nil {
+		fmt.Errorf("vazio")
+	}
+	for i := 0; i < len(p); i++ {
+		frase = ""
+		frase = p[i]
+		if frase[0] > 64 && frase[0] < 91 {
+			a += frase + " "
+		}
+	}
+	return a, nil
+}
+
+func main() {
+	var p = []string{"Aa", "b", "Wagner"}
+	resultado, err := CamelCase(p)
+	if err != nil {
+		fmt.Print("Slice vazia")
+
+	} else {
+		fmt.Println(resultado)
+	}
+}
+
 //////////////////////////////////////////////////////////////////////////////////////////////////
 EXERCÍCIO 13
 //////////////////////////////////////////////////////////////////////////////////////////////////
