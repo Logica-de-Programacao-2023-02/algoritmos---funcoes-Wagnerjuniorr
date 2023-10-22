@@ -535,6 +535,40 @@ func main() {
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////
 EXERCÍCIO 17
+package main
+
+import (
+	"fmt"
+	"sort"
+)
+
+//Crie uma função que receba um slice de strings como parâmetro
+//e retorne uma nova string com as strings em ordem alfabética.
+//Caso o slice esteja vazio, retorne um erro.
+
+func AlphabeticOrder(f []string) (string, error) {
+	if len(f) == 0 {
+		return "", fmt.Errorf("slice vazia")
+	}
+	var frase string
+	sort.Strings(f)
+	for i := 0; i < len(f); i++ {
+
+		frase += f[i] + " "
+	}
+	return frase, nil
+}
+
+func main() {
+	var f = []string{"wagner", "amanda", "julio"}
+	resultado, err := AlphabeticOrder(f)
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Println(resultado)
+	}
+}
+
 //////////////////////////////////////////////////////////////////////////////////////////////////
 EXERCÍCIO 18
 //////////////////////////////////////////////////////////////////////////////////////////////////
