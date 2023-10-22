@@ -571,6 +571,40 @@ func main() {
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 EXERCÍCIO 18
+package main
+
+import "fmt"
+
+//Escreva uma função que receba um slice de inteiros e uma função como parâmetros.
+//A função deve aplicar a função recebida em cada elemento do slice e retornar a soma de todos os resultados.
+//Caso o slice esteja vazio, retorne um erro.
+
+func soma(a []int) int {
+	var num2 int
+	for i := 0; i < len(a); i++ {
+		num2 += a[i]
+	}
+	return num2
+}
+
+func test(num []int, s func([]int) int) (int, error) {
+	if len(num) == 0 {
+		return 0, fmt.Errorf("slice vazia")
+	}
+
+	return s(num), nil
+}
+
+func main() {
+	var num = []int{10, 10, 10, 20}
+	resultado, err := test(num, soma)
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Println(resultado)
+	}
+}
+
 //////////////////////////////////////////////////////////////////////////////////////////////////
 EXERCÍCIO 19
 //////////////////////////////////////////////////////////////////////////////////////////////////
