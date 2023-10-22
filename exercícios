@@ -607,5 +607,45 @@ func main() {
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 EXERCÍCIO 19
+package main
+
+import "fmt"
+
+//Crie uma função que receba um número inteiro como parâmetro
+//e retorne um novo slice contendo todos os números primos menores ou iguais a ele.
+//Caso o número seja negativo, retorne um erro.
+
+func NumerosPrimos(a int) ([]int, error) {
+	if a < 0 {
+		return nil, fmt.Errorf("numero negativo")
+	}
+	var num []int
+
+	for i := a; i > 1; i-- {
+		if i%2 != 0 && i%3 != 0 {
+			num = append(num, i)
+		}
+	}
+	for i := len(num) - 1; i > 0; {
+		if num[i] == 2 && num[i+1] == 3 {
+			break
+		} else {
+			num = append(num, 3, 2)
+			break
+		}
+	}
+
+	return num, nil
+}
+
+func main() {
+	a := 100
+	resultado, err := NumerosPrimos(a)
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Println(resultado)
+	}
+}
 //////////////////////////////////////////////////////////////////////////////////////////////////
 EXERCÍCIO 20
