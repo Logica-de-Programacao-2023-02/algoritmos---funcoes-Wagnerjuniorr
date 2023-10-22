@@ -501,6 +501,38 @@ func main() {
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 EXERCÍCIO 16
+package main
+
+import (
+	"fmt"
+	"strings"
+)
+
+//Escreva uma função que receba uma string como parâmetro
+//e retorne uma nova string com todas as vogais substituídas por "*".
+//Caso a string seja vazia, retorne um erro.
+
+func NoVogals(p string) (string, error) {
+	vogals := "aeiou"
+	p = strings.ToLower(p)
+	for i := 0; i < len(vogals); i++ {
+		p = strings.ReplaceAll(p, string(vogals[i]), "*")
+	}
+	if len(p) == 0 {
+		return "", fmt.Errorf("string vazia")
+	}
+	return p, nil
+}
+
+func main() {
+	var p = "wagner"
+	resultado, err := NoVogals(p)
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Println(resultado)
+	}
+}
 //////////////////////////////////////////////////////////////////////////////////////////////////
 EXERCÍCIO 17
 //////////////////////////////////////////////////////////////////////////////////////////////////
