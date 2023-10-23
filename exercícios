@@ -649,3 +649,34 @@ func main() {
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////
 EXERCÍCIO 20
+package main
+
+import "fmt"
+
+//Escreva uma função que receba um slice de strings como parâmetro
+//e retorne um novo slice contendo apenas as strings que possuem mais de 5 caracteres.
+//Caso o slice esteja vazio, retorne um erro.
+
+func MoreThanFiveDigits(f []string) ([]string, error) {
+	var f2 []string
+	if len(f) == 0 {
+		return nil, fmt.Errorf("Slice vazia")
+
+	}
+	for _, word := range f {
+		if len(word) >= 5 {
+			f2 = append(f2, word)
+		}
+	}
+	return f2, nil
+}
+
+func main() {
+	var f = []string{"wagner", "abc", "aaaaaaaaa", "Tales"}
+	resultado, err := MoreThanFiveDigits(f)
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Println(resultado)
+	}
+}
